@@ -16,7 +16,7 @@ public class Main {
          */
         Scanner sc= new Scanner (System.in);
         String NombreEmpleado="";
-        String DocumentroIdentidad="";
+        String DocumentoIdentidad="";
         String Diadescanso="";
         String UsuarioEmpleado = "";
         String Contrasenaempelado = "";
@@ -26,6 +26,7 @@ public class Main {
         double RetenconPension= 0;
         double Valohora = 0;
         double Cantidadhoras =0;
+        double ValorSalarioMinimo =0;
         int AuxilioTransporte=200000;
         double Bonificacionempleado =0;
 
@@ -35,9 +36,29 @@ public class Main {
         Contrasenaempelado = sc.nextLine();
         if (UsuarioEmpleado.equals("admin") && Contrasenaempelado.equals("admin")){
             System.out.println("Ha ingresado de manera correcta");
-
+            System.out.println("ingrese el nombre del empleado");
+            NombreEmpleado = sc.nextLine();
+            System.out.println("ingrese su documento de identidad");
+            DocumentoIdentidad = sc.nextLine();
+            System.out.println("ingrese el dia de descanso (Lunes a Viernes): ");
+            Diadescanso = sc.nextLine();
+            System.out.println("ingrese el valor de la hora");
+            Valohora = sc.nextDouble();
+            System.out.println("ingrese la cantidad de horas laboradas");
+            Cantidadhoras = sc.nextDouble();
+            SalarioBruto = Valohora * Cantidadhoras;
+            System.out.println("ingrese el valor del salario minimo para este año");
+            ValorSalarioMinimo = sc.nextDouble();
+            if (SalarioBruto > (ValorSalarioMinimo*2)){
+                Bonificacionempleado =0;
+                AuxilioTransporte =0;
+            }   else {
+                    Bonificacionempleado = SalarioBruto *0.1;
+                    AuxilioTransporte = 200000;
+                }
+                    SalarioNeto = SalarioBruto + Bonificacionempleado + AuxilioTransporte;
+                System.out.println(" El salario neto es:" + SalarioNeto);
         } else {
             System.out.println("Error de credenciales");
         }
-    }
-}
+     }
