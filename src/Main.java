@@ -1,8 +1,11 @@
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
+        
         /*
          * Una empresa desea registrar la informacion de cada empleado, para ello cada empleado debe ingresar con usuario y ontraseña designada, una vez ingresado el empleado debe registrar la siguiente información
          * 1. Nombre completo
@@ -23,7 +26,7 @@ public class Main {
         double SalarioBruto= 0;
         double SalarioNeto = 0;
         double RetencionSalud = 0;
-        double RetenconPension= 0;
+        double RetencionPension= 0;
         double Valohora = 0;
         double Cantidadhoras =0;
         double ValorSalarioMinimo =0;
@@ -56,9 +59,13 @@ public class Main {
                     Bonificacionempleado = SalarioBruto *0.1;
                     AuxilioTransporte = 200000;
                 }
-                    SalarioNeto = SalarioBruto + Bonificacionempleado + AuxilioTransporte;
-                System.out.println(" El salario neto es:" + SalarioNeto);
+                RetencionSalud = SalarioBruto * 0.04;
+                RetencionPension = SalarioBruto * 0.04;
+                    SalarioNeto = SalarioBruto - RetencionSalud - RetencionPension + Bonificacionempleado + AuxilioTransporte;
+                System.out.println(" Detalle de nómina empleado");
+                System.out.println("el empleado" + NombreEmpleado + "Con documento" + DocumentoIdentidad + "Tiene el siguiente Detalle: \n Salario: " + SalarioBruto + "\n Salario neto);" + SalarioNeto + "\n Deducción por Salud: " + RetencionSalud + "\nDeducción por pensión: " + RetencionPension + "\nAuxilio de Trasnporte " + AuxilioTransporte +"\n Bonificación: " + Bonificacionempleado);
         } else {
             System.out.println("Error de credenciales");
         }
      }
+    }
